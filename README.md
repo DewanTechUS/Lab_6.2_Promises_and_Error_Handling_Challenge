@@ -35,7 +35,7 @@
 This lab taught me a lot about how real-world API workflows work with delays and errors, and how Promise chains help control the flow of async operations.
 
 # Debugging Experience
-## The lab itself should take around 1–1.5 hours, but I spent extra time making sure I fully understood how:
+## The lab itself should take around 1-1.5 hours, but I spent extra time making sure I fully understood how:
 •	Promises resolve and reject
 •	Errors flow through a Promise chain
 •	TypeScript compiles into JavaScript
