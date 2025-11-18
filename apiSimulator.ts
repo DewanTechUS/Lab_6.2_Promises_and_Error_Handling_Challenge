@@ -38,3 +38,28 @@ resolve([
     }, 1000);
   });
 };
+// https://ps-lms.vercel.app/curriculum/se/413/lab-2#:~:text=Continue%20with%20fetchProductReviews()
+// Part 3: Continue with fetchProductReviews() as per the instructions in the link above.
+// follow the lesson
+// Simulate fetching product reviews
+export const fetchProductReviews = (productId: number) => {
+return new Promise<{ productId: number; review: string }[]>((resolve, reject) => {
+setTimeout(() => {
+const ok = Math.random() < 0.8; // following lesson example
+
+ if (ok) {
+ resolve([
+
+{ productId, review: "Rocky's review: Good product" },
+{ productId, review: "Rocky's review: Very Bad item" }
+   ]);
+ } 
+      
+    else {
+        reject(`Failed to fetch reviews for product ID ${productId}`); // added productId in the error message for clarity
+      }
+
+    }, 2000); // 2second delay for fetching reviews
+  });
+};
+
