@@ -71,8 +71,9 @@ export const fetchSalesReport = () => {
 
     totalSales: number;  
     unitsSold: number; 
-    
-    averagePrice: number }>
+    averagePrice: number 
+
+}>
     
     ((resolve, reject) => {
     setTimeout(() => {
@@ -82,7 +83,7 @@ export const fetchSalesReport = () => {
       if (ok) {
         resolve({
     
-            totalSales: 16500,
+        totalSales: 16500,
          unitsSold: 375,
          averagePrice: 44
     
@@ -94,7 +95,7 @@ export const fetchSalesReport = () => {
     
         reject("Failed to fetch sales report");
       }
-    }, 1000);
+    }, 1000); // 1 second delay
   });
 };
 
