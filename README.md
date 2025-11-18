@@ -59,6 +59,16 @@ Even though I struggled at times, these debugging moments helped me understand P
 - I also want to thank my classmates who completed the project during class and supported each other. Even though some finished quickly, I completed mine faster than my earlier labs because I gained a lot of experience from previous exercises. Each lab has helped me improve my skills, practice more, and build stronger confidence in JavaScript and TypeScript.
 
 # Project Structure
+- root folder/
+- dist/                 - Compiled JavaScript files (generated automatically)
+- node_modules/         - Installed dependencies
+- .gitignore            - Files and folders Git should ignore
+- apiSimulator.ts       - Simulated API functions (catalog, reviews, sales report)
+- index.ts              - Main Promise chaining and error handling logic
+- package-lock.json     - Auto-generated dependency lock file
+- package.json          - Project metadata and scripts
+- README.md             - Documentation for Lab 2
+- tsconfig.json         - TypeScript compiler configuration
 
 # How to Run the Project
 ## Install dependencies
