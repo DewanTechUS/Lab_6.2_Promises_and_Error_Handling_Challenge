@@ -1,7 +1,9 @@
-import {
-  fetchProductCatalog,
-  fetchProductReviews,
-  fetchSalesReport
+import { 
+  fetchProductCatalog, 
+  fetchProductReviews, 
+  fetchSalesReport, 
+  NetworkError, 
+  DataError 
 } from "./apiSimulator";
 
 console.log("Starting fake API requests please wait.");
@@ -27,9 +29,26 @@ fetchProductCatalog()
 
 })
   .catch((error) => {
-    console.error("Error:", error);
-  })
+    // network error handling as per lesson
+  if (error instanceof NetworkError) 
+    
+    {
+    console.error("Simulated Network error:", error.message);
 
-  .finally(() => {
-    console.log("All fake API calls attempted");
-  });
+  } 
+  
+  else if (error instanceof DataError) {
+    console.error("Simulated Data error:", error.message);
+  } 
+  else 
+    
+    {
+    console.error("Simulated Unknown error:", error);
+  }
+})
+
+.finally(() => 
+    
+{
+  console.log("All Simulated API calls attempted");
+});
