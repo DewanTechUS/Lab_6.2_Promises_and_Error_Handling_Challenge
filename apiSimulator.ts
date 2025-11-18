@@ -15,3 +15,26 @@ export const fakeApiCall = (): Promise<string> => {
 
   });
 }
+// https://ps-lms.vercel.app/curriculum/se/413/lab-2#:~:text=an%20error%20message.-,Part%202%3A%20Implement%20API%20Simulation%20Functions,-Simulate%20Asynchronous%20API
+// Part 2: Implement API Simulation Functions as per the instructions in the link above.
+// follow the lesson
+
+export const fetchProductCatalog = () => {
+return new Promise<{ id: number; name: string; price: number }[]>((resolve, reject) => {
+setTimeout(() => {
+const ok = Math.random() < 0.8;
+
+if (ok) {
+resolve([
+{ id: 1, name: "Rocky's Laptop", price: 1200 }, // i tryng to add $ sign but it give error
+
+{ id: 2, name: "Rocky's Headphones", price: 200 } // i tryng to add $ sign but it give error
+     ]);
+      } 
+
+      else {
+     reject("I simulated a Failed to fetch product catalog");
+      }
+    }, 1000);
+  });
+};
