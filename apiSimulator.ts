@@ -62,4 +62,39 @@ const ok = Math.random() < 0.8; // following lesson example
     }, 2000); // 2second delay for fetching reviews
   });
 };
+// https://ps-lms.vercel.app/curriculum/se/413/lab-2#:~:text=ID%20%24%7BproductId%7D%22.-,fetchSalesReport()%3A,-Simulates%20fetching%20a
+// Part 4: fetchSalesReport() as per the instructions in the link above.
+// follow the lesson
+// fetching a sales report
+export const fetchSalesReport = () => {
+  return new Promise<{ 
+
+    totalSales: number;  
+    unitsSold: number; 
+    
+    averagePrice: number }>
+    
+    ((resolve, reject) => {
+    setTimeout(() => {
+    
+        const ok = Math.random() < 0.8;
+
+      if (ok) {
+        resolve({
+    
+            totalSales: 16500,
+         unitsSold: 375,
+         averagePrice: 44
+    
+        });
+
+
+      } else 
+        {
+    
+        reject("Failed to fetch sales report");
+      }
+    }, 1000);
+  });
+};
 
