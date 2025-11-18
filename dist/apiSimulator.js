@@ -1,0 +1,98 @@
+"use strict";
+// https://ps-lms.vercel.app/curriculum/se/413/lab-2#:~:text=Instructions-,Part%201%3A%20Set%20Up%20Your%20Project,-Create%20a%20New
+// Part 1: Set Up Your Project as per the instructions in the link above.
+// follow the lesson
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.fetchSalesReport = exports.fetchProductReviews = exports.fetchProductCatalog = exports.DataError = exports.NetworkError = exports.fakeApiCall = void 0;
+const fakeApiCall = () => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            const success = Math.random() < 0.8; // 80% chance of success https://ps-lms.vercel.app/curriculum/se/413/lab-2#:~:text=Example%20Code%20for%20fetchProductCatalog()
+            if (success) {
+                resolve("I made a fake API call succeeded");
+            }
+            else {
+                reject("I made a fake API call failed");
+            }
+        }, 1000); // it is simulate 1 second delay // we can do 10 * 1000 to simulate 10 seconds delay
+    });
+};
+exports.fakeApiCall = fakeApiCall;
+// https://ps-lms.vercel.app/curriculum/se/413/lab-2#:~:text=have%20been%20attempted.-,Part%204%3A%20Custom%20Error%20Classes,-Create%20Custom%20Error
+//custom Error Classes network error //
+class NetworkError extends Error {
+    constructor(message) {
+        super(message);
+        this.name = "Simulated NetworkError";
+    }
+}
+exports.NetworkError = NetworkError;
+// Custom Error Classes data error
+class DataError extends Error {
+    constructor(message) {
+        super(message);
+        this.name = "Simulated DataError";
+    }
+}
+exports.DataError = DataError;
+// https://ps-lms.vercel.app/curriculum/se/413/lab-2#:~:text=an%20error%20message.-,Part%202%3A%20Implement%20API%20Simulation%20Functions,-Simulate%20Asynchronous%20API
+// Part 2: Implement API Simulation Functions as per the instructions in the link above.
+// follow the lesson
+const fetchProductCatalog = () => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if (Math.random() < 0.8) {
+                resolve([
+                    { id: 1, name: "Rocky's Laptop", price: 1200 },
+                    { id: 2, name: "Rocky's Headphones", price: 200 }
+                ]);
+            }
+            else {
+                reject(new NetworkError("Failed to fetch fake product catalog"));
+            }
+        }, 1000); // 1 second delay
+    });
+};
+exports.fetchProductCatalog = fetchProductCatalog;
+// https://ps-lms.vercel.app/curriculum/se/413/lab-2#:~:text=Continue%20with%20fetchProductReviews()
+// Part 3: Continue with fetchProductReviews() as per the instructions in the link above.
+// follow the lesson
+// Simulate fetching product reviews
+const fetchProductReviews = (productId) => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if (Math.random() < 0.8) {
+                resolve([
+                    { productId, review: "Rocky's Review: Excellent quality" },
+                    { productId, review: "Rocky's Review: Slow shipping" }
+                ]);
+            }
+            else {
+                reject(new DataError(`Failed to fetch reviews for product ID ${productId}`));
+            }
+        }, 2000); // 2 seconds delay
+    });
+};
+exports.fetchProductReviews = fetchProductReviews;
+// https://ps-lms.vercel.app/curriculum/se/413/lab-2#:~:text=ID%20%24%7BproductId%7D%22.-,fetchSalesReport()%3A,-Simulates%20fetching%20a
+// Part 4: fetchSalesReport() as per the instructions in the link above.
+//https://ps-lms.vercel.app/curriculum/se/413/lab-2#:~:text=have%20been%20attempted.-,Part%204%3A%20Custom%20Error%20Classes,-Create%20Custom%20Error
+// follow the lesson
+// fetching a sales report
+const fetchSalesReport = () => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if (Math.random() < 0.8) {
+                resolve({
+                    totalSales: 165710,
+                    unitsSold: 250,
+                    averagePrice: 663
+                });
+            }
+            else {
+                reject(new NetworkError("Failed to fetch simulated sales report"));
+            }
+        }, 1000);
+    });
+};
+exports.fetchSalesReport = fetchSalesReport;
